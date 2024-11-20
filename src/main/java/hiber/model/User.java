@@ -19,9 +19,10 @@ public class User {
    @Column(name = "email")
    private String email;
 
+   @MapsId
    @OneToOne
-   @JoinColumn(name = "cars_id")
-   private Car userCar;
+//   @JoinColumn(name = "cars_id")
+   private Car car;
 
    public User() {
    }
@@ -64,11 +65,12 @@ public class User {
       this.email = email;
    }
 
-   public Car getUserCar() {
-      return userCar;
+   public Car getCar() {
+      return car;
    }
 
-   public void setUserCar(Car userCar) {
-      this.userCar = userCar;
+   public Car setCar(Car car) {
+      this.car = car;
+      return car;
    }
 }

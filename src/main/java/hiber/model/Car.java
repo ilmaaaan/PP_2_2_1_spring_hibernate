@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "cars")
 public class Car {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -14,6 +15,9 @@ public class Car {
 
     @Column(name = "series")
     private int series;
+
+    @OneToOne(mappedBy = "car")
+    private User user;
 
     public Car() {
     }
@@ -45,6 +49,15 @@ public class Car {
 
     public void setModel(String model) {
         this.model = model;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public User setUser(User user) {
+        this.user = user;
+        return user;
     }
 
     @Override
